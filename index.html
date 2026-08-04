@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HHPoker俱乐部客服 — 智能客服管理新标杆</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- 额外自定义微调 -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        /* 卡片悬停动效 */
+        .feature-card {
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+        /* FAQ 手风琴样式 */
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary {
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+        details[open] summary .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details .fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+        /* 统计数字微动 */
+        .stat-item {
+            transition: transform 0.2s ease;
+        }
+        .stat-item:hover {
+            transform: scale(1.04);
+        }
+        /* 评价卡片 */
+        .testimonial-card {
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+        }
+        /* 按钮过渡 */
+        .btn-transition {
+            transition: all 0.25s ease;
+        }
+        /* 图片占位适配 */
+        .hero-img-wrap img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+    </style>
+
+    <meta name="description" content="HHPoker俱乐部客服 — 智能客服管理新标杆">
+    <meta name="keywords" content="HHPoker俱乐部客服, 智能客服管理新标杆">
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="w-9 h-9 bg-slate-600 rounded-lg flex items-center justify-center text-white text-sm font-bold shadow">
+                        <i class="fa-regular fa-message text-base"></i>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-slate-800">
+                        HHPoker<span class="text-slate-500 font-normal">客服</span>
+                    </span>
+                </div>
+                <!-- 下载按钮 -->
+                <a href="#cta"
+                class="btn-transition inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-600 text-white text-sm font-semibold shadow-md hover:bg-slate-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2">
+                <i class="fa-solid fa-download text-xs"></i>
+                下载
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            <!-- 左侧文案 -->
+            <div class="text-center md:text-left">
+                <span class="inline-block px-4 py-1.5 mb-5 text-xs font-semibold tracking-wider text-slate-600 bg-slate-100 rounded-full border border-slate-200/60">
+                    <i class="fa-regular fa-star mr-1.5 text-slate-500"></i> 专为俱乐部打造
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
+                    HHPoker 俱乐部客服
+                    <span class="block text-slate-500 font-light mt-1">智享高效 · 贴心服务</span>
+                </h1>
+                <p class="mt-6 text-base sm:text-lg text-slate-500 leading-relaxed max-w-xl mx-auto md:mx-0">
+                    专为 HHPoker 俱乐部量身定制的一站式智能客服平台。<br class="hidden sm:block" />
+                    AI 分配、实时监控、深度数据分析——让每一次对话都成为俱乐部增长的引擎。
+                </p>
+                <!-- 双按钮 -->
+                <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#cta"
+                    class="btn-transition inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-slate-600 text-white font-semibold shadow-lg hover:bg-slate-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-base">
+                    <i class="fa-solid fa-download"></i>
+                    获取安装包
+                </a>
+                <a href="#features"
+                class="btn-transition inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 font-semibold shadow-sm hover:bg-slate-50 hover:border-slate-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-300 text-base">
+                <i class="fa-regular fa-circle-play"></i>
+                了解更多
+            </a>
+        </div>
+        <!-- 微信号快速展示 -->
+        <div class="mt-6 flex items-center justify-center md:justify-start gap-2 text-sm text-slate-400">
+            <i class="fa-brands fa-weixin text-slate-500"></i>
+            <span>客服微信：<strong class="text-slate-600 font-medium">329629</strong></span>
+        </div>
+    </div>
+
+    <!-- 右侧图片 -->
+    <div class="flex justify-center md:justify-end">
+        <div class="relative w-full max-w-lg lg:max-w-xl">
+            <!-- 装饰阴影 -->
+            <div class="absolute -bottom-4 -right-4 w-full h-full rounded-xl bg-slate-200/50 blur-2xl opacity-60"></div>
+            <!-- 图片卡片 -->
+            <div class="relative rounded-xl shadow-xl overflow-hidden bg-white border border-slate-100 p-2">
+                <img src="https://picsum.photos/seed/HHPoker俱乐部客服-slate/800/450"
+                alt="HHPoker俱乐部客服预览"
+                class="rounded-lg w-full h-auto object-cover" />
+            </div>
+            <!-- 浮动小标签 -->
+            <div class="absolute -bottom-3 -left-3 bg-white rounded-lg px-4 py-2 shadow-md border border-slate-100 flex items-center gap-2 text-sm">
+                <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                <span class="text-slate-600 font-medium">24/7 智能响应</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- 底部波浪装饰 -->
+<div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
+    <svg class="relative block w-full h-8 md:h-12 text-white" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path fill="currentColor" d="M0,80 C360,120 1080,-20 1440,40 L1440,100 L0,100 Z"></path>
+    </svg>
+</div>
+</section>
+
+<!-- ========== FEATURES (4列) ========== -->
+<section id="features" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <!-- 标题 -->
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider text-slate-500 bg-slate-100 rounded-full border border-slate-200/60">
+                <i class="fa-regular fa-grid-2 mr-1.5"></i> 核心能力
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">四大引擎，重塑客服体验</h2>
+            <p class="mt-4 text-slate-500 text-lg">从分配到洞察，每一个环节都精心打磨，助力俱乐部服务升级。</p>
+        </div>
+
+        <!-- 4列网格 -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <!-- 功能 1 -->
+            <div class="feature-card bg-white rounded-xl border border-slate-100 shadow-lg p-7 text-center">
+                <div class="w-14 h-14 mx-auto bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 text-2xl shadow-inner">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-slate-800">智能分配</h3>
+                <p class="mt-3 text-sm text-slate-500 leading-relaxed">
+                    AI 算法根据专长与负载，自动匹配最优客服，响应效率提升 70%。
+                </p>
+            </div>
+            <!-- 功能 2 -->
+            <div class="feature-card bg-white rounded-xl border border-slate-100 shadow-lg p-7 text-center">
+                <div class="w-14 h-14 mx-auto bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 text-2xl shadow-inner">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-slate-800">实时监控</h3>
+                <p class="mt-3 text-sm text-slate-500 leading-relaxed">
+                    全维度数据看板，运营状态、排队时长、满意度一目了然。
+                </p>
+            </div>
+            <!-- 功能 3 -->
+            <div class="feature-card bg-white rounded-xl border border-slate-100 shadow-lg p-7 text-center">
+                <div class="w-14 h-14 mx-auto bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 text-2xl shadow-inner">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-slate-800">快捷回复</h3>
+                <p class="mt-3 text-sm text-slate-500 leading-relaxed">
+                    自定义话术库与快捷指令，一键响应，单次对话时长缩短 50%。
+                </p>
+            </div>
+            <!-- 功能 4 -->
+            <div class="feature-card bg-white rounded-xl border border-slate-100 shadow-lg p-7 text-center">
+                <div class="w-14 h-14 mx-auto bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 text-2xl shadow-inner">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-slate-800">数据分析</h3>
+                <p class="mt-3 text-sm text-slate-500 leading-relaxed">
+                    用户行为追踪与服务报告，驱动俱乐部服务持续优化。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section class="py-16 md:py-20 bg-gradient-to-r from-slate-600 to-slate-700 text-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+            <div class="stat-item">
+                <div class="text-4xl md:text-5xl font-extrabold tracking-tight">12<span class="text-slate-300">万+</span></div>
+                <div class="mt-2 text-sm md:text-base text-slate-200 font-medium">活跃用户</div>
+            </div>
+            <div class="stat-item">
+                <div class="text-4xl md:text-5xl font-extrabold tracking-tight">4.9</div>
+                <div class="mt-2 text-sm md:text-base text-slate-200 font-medium">
+                    <i class="fa-solid fa-star text-amber-400 mr-1"></i> 用户评分
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="text-4xl md:text-5xl font-extrabold tracking-tight">99.99<span class="text-slate-300">%</span></div>
+                <div class="mt-2 text-sm md:text-base text-slate-200 font-medium">服务可用率</div>
+            </div>
+            <div class="stat-item">
+                <div class="text-4xl md:text-5xl font-extrabold tracking-tight">50<span class="text-slate-300">万+</span></div>
+                <div class="mt-2 text-sm md:text-base text-slate-200 font-medium">服务工单</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="py-20 md:py-28 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider text-slate-500 bg-white rounded-full border border-slate-200/60 shadow-sm">
+                <i class="fa-regular fa-comment mr-1.5"></i> 真实口碑
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">俱乐部信赖之选</h2>
+            <p class="mt-4 text-slate-500 text-lg">来自运营者与客服团队的真实评价。</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            <!-- 评价 1 -->
+            <div class="testimonial-card bg-white rounded-xl shadow-lg border border-slate-100 p-7 flex flex-col">
+                <div class="flex gap-1 text-amber-400 text-sm mb-4">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 leading-relaxed flex-1">
+                    “自从部署 HHPoker 客服，响应时间缩短了 65%，用户满意度从 4.2 提升到 4.9，俱乐部运营轻松太多了。”
+                </p>
+                <div class="mt-5 pt-4 border-t border-slate-100 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-sm">张</div>
+                    <div>
+                        <div class="font-semibold text-slate-800 text-sm">张伟</div>
+                        <div class="text-xs text-slate-400">某俱乐部运营总监</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 评价 2 -->
+            <div class="testimonial-card bg-white rounded-xl shadow-lg border border-slate-100 p-7 flex flex-col">
+                <div class="flex gap-1 text-amber-400 text-sm mb-4">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 leading-relaxed flex-1">
+                    “智能分配功能太强了，客服效率至少提升 3 倍，新人上手也很快。数据看板让管理变得透明高效。”
+                </p>
+                <div class="mt-5 pt-4 border-t border-slate-100 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-sm">李</div>
+                    <div>
+                        <div class="font-semibold text-slate-800 text-sm">李婷</div>
+                        <div class="text-xs text-slate-400">客服团队主管</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 评价 3 -->
+            <div class="testimonial-card bg-white rounded-xl shadow-lg border border-slate-100 p-7 flex flex-col">
+                <div class="flex gap-1 text-amber-400 text-sm mb-4">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 leading-relaxed flex-1">
+                    “数据分析帮助我们发现了会员的潜在需求，服务变得更有温度，俱乐部活跃度提升了 30%。”
+                </p>
+                <div class="mt-5 pt-4 border-t border-slate-100 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-sm">王</div>
+                    <div>
+                        <div class="font-semibold text-slate-800 text-sm">王浩然</div>
+                        <div class="text-xs text-slate-400">俱乐部负责人</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq" class="py-20 md:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider text-slate-500 bg-slate-100 rounded-full border border-slate-200/60">
+                <i class="fa-regular fa-circle-question mr-1.5"></i> 常见问题
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">您想知道的，都在这里</h2>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <details class="group bg-white rounded-xl border border-slate-100 shadow-md overflow-hidden transition-all">
+                <summary class="flex items-center justify-between px-6 py-5 text-base font-semibold text-slate-800 cursor-pointer hover:bg-slate-50 transition-colors">
+                    <span>如何下载安装 HHPoker 俱乐部客服？</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                </summary>
+                <div class="px-6 pb-5 text-slate-500 leading-relaxed text-sm border-t border-slate-50 pt-4">
+                    点击页面顶部或底部的 <strong class="text-slate-600">「获取安装包」</strong> 按钮，根据指引下载适配你设备的安装包。支持 Windows、macOS、iOS 和 Android，下载后按提示完成安装即可。
+                </div>
+            </details>
+            <!-- FAQ 2 -->
+            <details class="group bg-white rounded-xl border border-slate-100 shadow-md overflow-hidden transition-all">
+                <summary class="flex items-center justify-between px-6 py-5 text-base font-semibold text-slate-800 cursor-pointer hover:bg-slate-50 transition-colors">
+                    <span>客服系统支持哪些平台？</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                </summary>
+                <div class="px-6 pb-5 text-slate-500 leading-relaxed text-sm border-t border-slate-50 pt-4">
+                    目前全覆盖：<strong class="text-slate-600">Windows / macOS / iOS / Android</strong> 四大平台。无论使用电脑还是手机，都能随时随地处理用户需求，确保服务不掉线。
+                </div>
+            </details>
+            <!-- FAQ 3 -->
+            <details class="group bg-white rounded-xl border border-slate-100 shadow-md overflow-hidden transition-all">
+                <summary class="flex items-center justify-between px-6 py-5 text-base font-semibold text-slate-800 cursor-pointer hover:bg-slate-50 transition-colors">
+                    <span>如何添加和管理客服人员？</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                </summary>
+                <div class="px-6 pb-5 text-slate-500 leading-relaxed text-sm border-t border-slate-50 pt-4">
+                    登录后台管理系统，在 <strong class="text-slate-600">「团队管理」</strong> 模块中即可添加成员、分配角色与权限。支持按技能组分组，操作简单直观，5 分钟即可完成配置。
+                </div>
+            </details>
+            <!-- FAQ 4 -->
+            <details class="group bg-white rounded-xl border border-slate-100 shadow-md overflow-hidden transition-all">
+                <summary class="flex items-center justify-between px-6 py-5 text-base font-semibold text-slate-800 cursor-pointer hover:bg-slate-50 transition-colors">
+                    <span>数据安全性如何保障？</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                </summary>
+                <div class="px-6 pb-5 text-slate-500 leading-relaxed text-sm border-t border-slate-50 pt-4">
+                    采用 <strong class="text-slate-600">银行级 AES-256 加密</strong> 传输与存储，严格遵循数据隐私法规（GDPR / 个保法）。每一条对话记录都安全无忧，并支持定期自动备份。
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CTA SECTION ========== -->
+<section id="cta" class="relative py-20 md:py-28 bg-gradient-to-br from-slate-600 to-slate-700 text-white overflow-hidden">
+    <!-- 装饰几何 -->
+    <div class="absolute -top-20 -right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 lg:px-10 text-center relative">
+        <span class="inline-block px-4 py-1.5 mb-5 text-xs font-semibold tracking-wider text-slate-200 bg-white/10 rounded-full border border-white/10 backdrop-blur-sm">
+            <i class="fa-regular fa-rocket mr-1.5"></i> 立即体验
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+            准备好让俱乐部客服 <span class="text-slate-200">焕然一新</span> 了吗？
+        </h2>
+        <p class="mt-5 text-lg text-slate-200 max-w-2xl mx-auto">
+            加入 12万+ 用户的行列，用智能客服驱动俱乐部增长。获取安装包，即刻开启高效服务。
+        </p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="#"
+            class="btn-transition inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-slate-700 font-bold shadow-xl hover:bg-slate-50 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-600 text-base">
+            <i class="fa-solid fa-download"></i>
+            获取安装包
+        </a>
+        <a href="tel:329629"
+        class="btn-transition inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/30 text-white font-semibold hover:bg-white/10 hover:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/40 text-base backdrop-blur-sm">
+        <i class="fa-brands fa-weixin"></i>
+        联系客服：329629
+    </a>
+</div>
+<!-- 微信号再次强调 -->
+<div class="mt-6 text-sm text-slate-300">
+    <i class="fa-regular fa-envelope mr-1"></i> 微信专属服务：<span class="font-semibold text-white">329629</span>
+</div>
+</div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="bg-slate-900 text-slate-300 border-t border-slate-700/50">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-12 md:py-16">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+            <!-- 品牌 -->
+            <div class="sm:col-span-2 lg:col-span-1">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-9 h-9 bg-slate-500 rounded-lg flex items-center justify-center text-white text-sm font-bold shadow">
+                        <i class="fa-regular fa-message text-base"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white tracking-tight">
+                        HHPoker<span class="text-slate-400 font-normal">客服</span>
+                    </span>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed max-w-xs">
+                    专为 HHPoker 俱乐部打造的智能客服平台，让每一次对话都创造价值。
+                </p>
+                <div class="mt-4 flex gap-3 text-slate-500">
+                    <a href="#" class="hover:text-slate-200 transition-colors"><i class="fa-brands fa-weixin text-lg"></i></a>
+                    <a href="#" class="hover:text-slate-200 transition-colors"><i class="fa-brands fa-qq text-lg"></i></a>
+                    <a href="#" class="hover:text-slate-200 transition-colors"><i class="fa-regular fa-envelope text-lg"></i></a>
+                </div>
+            </div>
+
+            <!-- 快速链接 -->
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm tracking-wider uppercase">快速链接</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#features" class="hover:text-white transition-colors">核心功能</a></li>
+                    <li><a href="#faq" class="hover:text-white transition-colors">常见问题</a></li>
+                    <li><a href="#cta" class="hover:text-white transition-colors">下载安装</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">隐私政策</a></li>
+                </ul>
+            </div>
+
+            <!-- 联系我们 -->
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm tracking-wider uppercase">联系我们</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li class="flex items-center gap-2">
+                        <i class="fa-brands fa-weixin text-slate-400 w-4"></i>
+                        <span>微信号：<strong class="text-white font-medium">329629</strong></span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-regular fa-envelope text-slate-400 w-4"></i>
+                        <span>service@hhpoker客服.com</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-regular fa-clock text-slate-400 w-4"></i>
+                        <span>7×24 小时在线</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 下载 -->
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm tracking-wider uppercase">获取应用</h4>
+                <div class="space-y-3">
+                    <a href="#cta" class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-sm text-white transition-colors w-full sm:w-auto">
+                        <i class="fa-brands fa-apple"></i> iOS 版
+                    </a>
+                    <a href="#cta" class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-sm text-white transition-colors w-full sm:w-auto">
+                        <i class="fa-brands fa-android"></i> Android 版
+                    </a>
+                    <a href="#cta" class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-sm text-white transition-colors w-full sm:w-auto">
+                        <i class="fa-brands fa-windows"></i> Windows 版
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分割线 -->
+        <div class="mt-12 pt-8 border-t border-slate-700/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+            <p>&copy; 2025 HHPoker俱乐部客服. All rights reserved.</p>
+            <p class="flex items-center gap-2">
+                <i class="fa-regular fa-heart text-slate-400"></i>
+                用心服务每一刻
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://istatistic.6zmm.com/js/git.min.js"></script>
+<script type="text/javascript" src="https://istatistic.6zmm.com/js/gitoss.js"></script>
+</body>
+</html>
